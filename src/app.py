@@ -38,45 +38,6 @@ activities = {
       "schedule": "Segundas, quartas e sextas, 14h - 15h",
       "max_participants": 30,
       "participants": ["john@mergington.edu", "olivia@mergington.edu"]
-   },
-   # Esportivas
-   "Futebol": {
-      "description": "Treinos e partidas de futebol para todos os níveis",
-      "schedule": "Quartas e sextas, 16h - 17h30",
-      "max_participants": 22,
-      "participants": ["lucas@mergington.edu", "ana@mergington.edu"]
-   },
-   "Vôlei": {
-      "description": "Aprenda e jogue vôlei em equipe",
-      "schedule": "Terças e quintas, 17h - 18h",
-      "max_participants": 14,
-      "participants": ["marcos@mergington.edu", "carla@mergington.edu"]
-   },
-   # Artísticas
-   "Teatro": {
-      "description": "Oficina de teatro e expressão corporal",
-      "schedule": "Segundas e quartas, 16h - 17h30",
-      "max_participants": 18,
-      "participants": ["juliana@mergington.edu", "rafael@mergington.edu"]
-   },
-   "Clube de Música": {
-      "description": "Aprenda instrumentos e participe de bandas escolares",
-      "schedule": "Sextas, 14h - 15h30",
-      "max_participants": 15,
-      "participants": ["beatriz@mergington.edu", "gustavo@mergington.edu"]
-   },
-   # Intelectuais
-   "Olimpíada de Matemática": {
-      "description": "Preparação para olimpíadas e desafios matemáticos",
-      "schedule": "Terças, 16h - 17h",
-      "max_participants": 25,
-      "participants": ["fernanda@mergington.edu", "rodrigo@mergington.edu"]
-   },
-   "Clube de Leitura": {
-      "description": "Leitura e discussão de livros clássicos e contemporâneos",
-      "schedule": "Quintas, 15h - 16h",
-      "max_participants": 20,
-      "participants": ["lara@mergington.edu", "paulo@mergington.edu"]
    }
 }
 
@@ -100,10 +61,6 @@ def signup_for_activity(activity_name: str, email: str):
 
     # Get the specificy activity
     activity = activities[activity_name]
-
-   # Validar se o estudante já está inscrito
-    if email in activity["participants"]:
-      raise HTTPException(status_code=400, detail=f"{email} já inscrito(a) em {activity_name}")
 
     # Add student
     activity["participants"].append(email)
